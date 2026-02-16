@@ -4,6 +4,10 @@ from .routers import health
 
 app = FastAPI(title="GreenSnap API")
 
+@app.get("/")
+def root():
+    return {"message": "GreenSnap API is running"}
+
 app.include_router(health.router)
 
 @app.on_event("startup")
